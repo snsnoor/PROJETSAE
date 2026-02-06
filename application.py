@@ -94,7 +94,7 @@ with st.container():
                  labels={'salary_in_usd': 'Salaire moyen (USD)', category: category.replace('_', ' ').title()},
                  color='salary_in_usd', color_continuous_scale='Blues')
     st.plotly_chart(fig, use_container_width=True)
-    st.markdown(f"💡 **Interprétation** : Écarts importants selon **{category}**. Le salaire moyen varie énormément selon les critères.")
+    #st.markdown(f"💡 **Interprétation** : Écarts importants selon **{category}**. Le salaire moyen varie énormément selon les critères.")
 
 st.markdown("---")
 
@@ -105,12 +105,13 @@ with st.container():
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     corr_matrix = df[numeric_cols].corr()
     
-    fig = px.imshow(corr_matrix, 
+    fig = px.imshow(corr_matrix.round(2), 
                     text_auto=True, 
                     aspect="auto",
                     title="Matrice de corrélation",
                     color_continuous_scale='RdBu_r',
-                    height=600)
+                    height=600,
+                    textfont={"size": 16}, )
     st.plotly_chart(fig, use_container_width=True)
     st.markdown("💡 **Interprétation** : Les liens entre variables sont faibles (-0.02 à 0.24). Les variables numériques ne sont pas fortement corrélées.")
 
@@ -203,6 +204,7 @@ with st.container():
     st.metric("Nombre d'enregistrements filtrés", len(df_advanced_filtered))
     st.dataframe(df_advanced_filtered[['job_title', 'salary_in_usd', 'experience_level', 'company_size']].head(20), use_container_width=True)
     st.markdown("💡 **Interprétation** : Filtrage multicritères pour analyses ciblées.")
+
 
 
 
