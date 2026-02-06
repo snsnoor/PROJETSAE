@@ -10,8 +10,8 @@ Instructions :
 import os
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+#import matplotlib.pyplot as plt
+#import seaborn as sns
 import streamlit as st
 import plotly.express as px
 
@@ -70,14 +70,20 @@ with col_4:
 
 
 ### 5. Corrélation (seul sur toute la ligne)
+### 5. Corrélation (seul sur toute la ligne)
 st.subheader("🔗 Corrélations entre variables numériques")
 
 numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
 corr_matrix = df[numeric_cols].corr()
 
-fig, ax = plt.subplots(figsize=(10, 6))
-sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='coolwarm', ax=ax, linewidths=0.5)
-st.pyplot(fig)
+# Remplace seaborn par plotly (même résultat, sans matplotlib)
+fig = px.imshow(corr_matrix, 
+                text_auto=True, 
+                aspect="auto",
+                title="Matrice de corrélation",
+                color_continuous_scale='RdBu_r',
+                height=600)
+st.plotly_chart(fig, use_container_width=True)
 st.markdown("💡 **Interprétation** : Le heatmap révèle les relations entre variables numériques. Dans notre cas les liens entre les varibales sont très faibles , allant de -0.02 à 0.24 ce qui suggère que les variables numériques ne sont pas fortement corrélées entre elles.")
 
 
@@ -159,4 +165,5 @@ df_advanced_filtered = df[(df['experience_level'].isin(experience_levels)) &
 st.write(f"📊 Nombre d'enregistrements filtrés : **{len(df_advanced_filtered)}**")
 st.write(df_advanced_filtered.head(20))
 st.markdown("💡 **Interprétation** : Filtrage multicritères pour analyses ciblées.")
+
 
