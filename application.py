@@ -7,6 +7,14 @@ Instructions :
 """
 
 
+import os
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import streamlit as st
+import plotly.express as px
+
 st.set_page_config(layout="wide", page_title="Salaires Data Science", page_icon="📊")
 
 # Chargement des données
