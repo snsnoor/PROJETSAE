@@ -17,6 +17,32 @@ st.set_page_config(layout="wide", page_title="Salaires Data Science", page_icon=
 # Chargement des données
 df = pd.read_csv("datasets/ds_salaries.csv")
 
+# Bloc description dataset (fond beige)
+with st.container():
+    st.markdown("""
+    <div style='background-color: #F5F5DC; padding: 25px; border-radius: 15px; border-left: 6px solid #DAA520; margin: 20px 0;'>
+        <h3 style='color: #8B4513; margin-top: 0;'>📋 Data Science Job Salaries Dataset</h3>
+        <p style='line-height: 1.7; color: #654321; font-size: 16px;'>
+        Le dataset contient <strong>11 colonnes</strong>, chacune décrivant :
+        </p>
+        <ul style='color: #654321; line-height: 1.8; font-size: 15px;'>
+            <li><strong>work_year</strong>: L'année où le salaire a été payé.</li>
+            <li><strong>experience_level</strong>: Le niveau d'expérience dans le poste durant l'année.</li>
+            <li><strong>employment_type</strong>: Le type de contrat pour le poste.</li>
+            <li><strong>job_title</strong>: Le rôle exercé durant l'année.</li>
+            <li><strong>salary</strong>: Le montant total brut du salaire payé.</li>
+            <li><strong>salary_currency</strong>: La devise du salaire (code ISO 4217).</li>
+            <li><strong>salary_in_usd</strong>: Le salaire converti en USD.</li>
+            <li><strong>employee_residence</strong>: Pays de résidence principal de l'employé (code ISO 3166).</li>
+            <li><strong>remote_ratio</strong>: Pourcentage de travail effectué à distance.</li>
+            <li><strong>company_location</strong>: Pays du siège principal de l'employeur.</li>
+            <li><strong>company_size</strong>: Nombre médian d'employés dans l'entreprise durant l'année.</li>
+        </ul>
+        </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("---")
+
 ### 1. Titre et introduction
 st.title("📊 Visualisation des Salaires en Data Science")
 st.markdown("Explorez les tendances des salaires à travers différentes visualisations interactives.")
@@ -176,4 +202,5 @@ with st.container():
     st.metric("Nombre d'enregistrements filtrés", len(df_advanced_filtered))
     st.dataframe(df_advanced_filtered[['job_title', 'salary_in_usd', 'experience_level', 'company_size']].head(20), use_container_width=True)
     st.markdown("💡 **Interprétation** : Filtrage multicritères pour analyses ciblées.")
+
 
