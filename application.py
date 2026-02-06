@@ -59,6 +59,7 @@ with st.container():
     st.markdown("**📌 Statistiques générales**")
     st.dataframe(df.drop(columns=['work_year']).describe(), use_container_width=True)
 
+st.markdown("Le salaire minimum à 6000 € (5132 USD) et maximum à 30 400 000 € (450 000 USD) révèlent probablement des erreurs de saisie ou des valeurs aberrantes extrêmes. Les quartiles révèlent une répartition intéressante : 75% des postes n'offrent aucun télétravail (Q1, Q2, Q3 = 0%), tandis que 25% proposent du full remote (75e percentile = 100%)."
 st.markdown("---")
 
 ### 3. Distribution France (seule ligne)
@@ -202,6 +203,7 @@ with st.container():
     st.metric("Nombre d'enregistrements filtrés", len(df_advanced_filtered))
     st.dataframe(df_advanced_filtered[['job_title', 'salary_in_usd', 'experience_level', 'company_size']].head(20), use_container_width=True)
     st.markdown("💡 **Interprétation** : Filtrage multicritères pour analyses ciblées.")
+
 
 
 
