@@ -1,10 +1,3 @@
-"""
-Instructions :
-- Installez toutes les bibliothèques nécessaires :
-  conda create -n projet python pandas numpy matplotlib seaborn streamlit plotly scikit-learn
-  conda activate projet
-- Lancez l'application avec : streamlit run application.py
-"""
 
 import os
 import pandas as pd
@@ -47,9 +40,9 @@ with st.expander("📋 Description du dataset", expanded=True):
         **company_size** : Taille entreprise
         """)
       
-st.markdown("---")  # Séparateur visuel
+st.markdown("---")  
 
-### 2. Exploration visuelle (seul sur toute la ligne)
+### 2. Exploration visuelle ()
 with st.container():
     st.subheader("🔍 Exploration visuelle des données")
     
@@ -80,7 +73,7 @@ with st.container():
 
 st.markdown("---")
 
-### 4. Salaire moyen par catégorie (seule ligne)
+### 4. Salaire moyen par catégorie 
 with st.container():
     st.subheader("💰 Salaire moyen par catégorie")
     
@@ -98,7 +91,7 @@ with st.container():
 
 st.markdown("---")
 
-### 5. Corrélation (seule ligne)
+### 5. Corrélation 
 with st.container():
     st.subheader("🔗 Corrélations entre variables numériques")
     
@@ -116,7 +109,7 @@ with st.container():
 
 st.markdown("---")
 
-### 6. Évolution des salaires (seule ligne)
+### 6. Évolution des salaires 
 with st.container():
     st.subheader("📉 Évolution des salaires")
     
@@ -133,7 +126,7 @@ with st.container():
 
 st.markdown("---")
 
-### 7. Salaire médian (seule ligne)
+### 7. Salaire médian 
 with st.container():
     st.subheader("🏢 Salaire médian par expérience et taille d'entreprise")
     
@@ -148,7 +141,7 @@ with st.container():
 
 st.markdown("---")
 
-### 8. Filtrage par salaire (seule ligne)
+### 8. Filtrage par salaire
 with st.container():
     st.subheader("🎚️ Filtrage par plage de salaire")
     
@@ -163,7 +156,7 @@ with st.container():
 
 st.markdown("---")
 
-### 9. Impact du télétravail (seule ligne)
+### 9. Impact du télétravail 
 with st.container():
     st.subheader("🏠 Impact du télétravail sur le salaire")
     
@@ -181,7 +174,7 @@ with st.container():
 
 st.markdown("---")
 
-### 10. Filtrage avancé (seule ligne)
+### 10. Filtrage avancé
 with st.container():
     st.subheader("🔍 Filtrage avancé des données")
     
@@ -197,8 +190,7 @@ with st.container():
                                         options=df['company_size'].unique().tolist(),
                                         default=df['company_size'].unique().tolist())
     
-    df_advanced_filtered = df[(df['experience_level'].isin(experience_levels)) & 
-                              (df['company_size'].isin(company_sizes))]
+    df_advanced_filtered = df[(df['experience_level'].isin(experience_levels)) & (df['company_size'].isin(company_sizes))]
     
     st.metric("Nombre d'enregistrements filtrés", len(df_advanced_filtered))
     st.dataframe(df_advanced_filtered[['job_title', 'salary_in_usd', 'experience_level', 'company_size']].head(20), use_container_width=True)
