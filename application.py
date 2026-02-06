@@ -47,7 +47,7 @@ with st.container():
                      title="Salaires en France par niveau d'expérience",
                      labels={'salary_in_usd': 'Salaire (USD)', 'experience_level': 'Niveau d\'expérience'})
         st.plotly_chart(fig, use_container_width=True)
-        st.markdown("💡 **Interprétation** : Les salaires augmentent avec l'expérience, forte dispersion pour SE.")
+        st.markdown("💡 **Interprétation** : Les salaires augmentent avec l'expérience, forte dispersion pour SE. Quelques valeurs aberrantes apparaissent chez les MI et SE (dépassant 105-110k USD), reflétant des positions exceptionnelles dans certaines régions ou dans des entreprises tech spécialisées")
     else:
         st.warning("⚠️ Aucune donnée pour la France.")
 
@@ -176,3 +176,4 @@ with st.container():
     st.metric("Nombre d'enregistrements filtrés", len(df_advanced_filtered))
     st.dataframe(df_advanced_filtered[['job_title', 'salary_in_usd', 'experience_level', 'company_size']].head(20), use_container_width=True)
     st.markdown("💡 **Interprétation** : Filtrage multicritères pour analyses ciblées.")
+
