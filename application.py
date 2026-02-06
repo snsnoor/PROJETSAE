@@ -13,7 +13,6 @@ import numpy as np
 #import matplotlib.pyplot as plt
 #import seaborn as sns
 import streamlit as st
-import plotly
 import plotly.express as px
 
 st.set_page_config(layout="wide", page_title="Salaires Data Science", page_icon="📊")
@@ -166,6 +165,7 @@ df_advanced_filtered = df[(df['experience_level'].isin(experience_levels)) &
 st.write(f"📊 Nombre d'enregistrements filtrés : **{len(df_advanced_filtered)}**")
 st.write(df_advanced_filtered.head(20))
 st.markdown("💡 **Interprétation** : Filtrage multicritères pour analyses ciblées.")
+
 
 
 
