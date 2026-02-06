@@ -17,7 +17,14 @@ st.set_page_config(layout="wide", page_title="Salaires Data Science", page_icon=
 # Chargement des données
 df = pd.read_csv("datasets/ds_salaries.csv")
 
-# Bloc description dataset (fond beige - version Streamlit native)
+
+
+
+### 1. Titre et introduction
+st.title("📊 Visualisation des Salaires en Data Science")
+st.markdown("Explorez les tendances des salaires à travers différentes visualisations interactives.")
+
+# Bloc description dataset 
 with st.expander("📋 Description du dataset", expanded=True):
     col_desc1, col_desc2 = st.columns([1, 3])
     
@@ -39,12 +46,7 @@ with st.expander("📋 Description du dataset", expanded=True):
         **company_location** : Pays entreprise  
         **company_size** : Taille entreprise
         """)
-
-
-### 1. Titre et introduction
-st.title("📊 Visualisation des Salaires en Data Science")
-st.markdown("Explorez les tendances des salaires à travers différentes visualisations interactives.")
-
+      
 st.markdown("---")  # Séparateur visuel
 
 ### 2. Exploration visuelle (seul sur toute la ligne)
@@ -200,6 +202,7 @@ with st.container():
     st.metric("Nombre d'enregistrements filtrés", len(df_advanced_filtered))
     st.dataframe(df_advanced_filtered[['job_title', 'salary_in_usd', 'experience_level', 'company_size']].head(20), use_container_width=True)
     st.markdown("💡 **Interprétation** : Filtrage multicritères pour analyses ciblées.")
+
 
 
 
