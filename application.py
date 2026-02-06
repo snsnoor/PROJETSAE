@@ -111,7 +111,7 @@ with st.container():
                     title="Matrice de corrélation",
                     color_continuous_scale='RdBu_r',
                     height=600,
-                    textfont={"size": 16}, )
+                    textfont={"size": 16})
     st.plotly_chart(fig, use_container_width=True)
     st.markdown("💡 **Interprétation** : Les liens entre variables sont faibles (-0.02 à 0.24). Les variables numériques ne sont pas fortement corrélées.")
 
@@ -204,6 +204,7 @@ with st.container():
     st.metric("Nombre d'enregistrements filtrés", len(df_advanced_filtered))
     st.dataframe(df_advanced_filtered[['job_title', 'salary_in_usd', 'experience_level', 'company_size']].head(20), use_container_width=True)
     st.markdown("💡 **Interprétation** : Filtrage multicritères pour analyses ciblées.")
+
 
 
 
